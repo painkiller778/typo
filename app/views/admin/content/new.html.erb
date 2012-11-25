@@ -6,5 +6,5 @@
 <%= form_tag merge_articles_path, :id => :merge_with do %>
   <%= hidden_field_tag(:this_article_id, @article.id) %>
 	<%= text_field_tag(:article_id) %>
-  <%= submit_tag "Merge" %>
+  <%= submit_tag "Merge Articles" %>
 <% end %>
