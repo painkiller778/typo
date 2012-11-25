@@ -17,8 +17,8 @@ Feature: Merge articles
 
 
   Scenario: Only admins can see a "Merge With This Article" button
-    Given I am not am "admin"
-    I should not see "Merge"
+    Given I am not an admin
+    Then I should not see "Merge"
 
   Scenario: Successfully merge articles
     Given I am logged into the admin panel

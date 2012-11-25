@@ -24,9 +24,11 @@ Given /the following comments exist/ do |comments|
   end
 end
 
+Given /I am not an admin/ do 
+end
 
 When /^I fill article_id with "(.*)" id$/ do |title|
-  fill_in("article_id", :with => Article.find_by_title(title).id)
+  fill_in("merge_with", :with => Article.find_by_title(title).id)
 end
 
 When /^I submit the merge form$/ do

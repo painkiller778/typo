@@ -13,7 +13,7 @@ class ArticlesController < ContentController
   helper :'admin/base'
 
   def merge_articles
-    if user.profile == 'admin'
+    if not current_user.nil? and current_user.login == 'admin'
       article = Article.find(params[:this_article_id])
 
       article.merge_with!(params[:merge_with])
