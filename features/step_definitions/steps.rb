@@ -30,7 +30,7 @@ When /^I fill article_id with "(.*)" id$/ do |title|
 end
 
 When /^I submit the merge form$/ do
-  click_button "Merge Articles"
+  click_button "Merge"
 end
 
 Then /^"(.*)" body should contain "(.*)"$/ do |title, text|

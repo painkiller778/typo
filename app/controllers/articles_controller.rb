@@ -17,7 +17,7 @@ class ArticlesController < ContentController
 
     article.merge_with!(params[:article_id])
 
-    redirect_to :back
+    redirect_to article
   end
 
   def index
