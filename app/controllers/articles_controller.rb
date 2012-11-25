@@ -13,9 +13,14 @@ class ArticlesController < ContentController
   helper :'admin/base'
 
   def merge_articles
-    article = Article.find(params[:this_article_id])
+    if user.profile == 'admin'
+      article = Article.find(params[:this_article_id])
 
-    article.merge_with!(params[:merge_with])
+      article.merge_with!(params[:merge_with])
+      flash[:message] = "Success!"
+    else
+      flash[:message] = "Tu nao eh admin..."
+    end
 
     redirect_to root_path
   end
