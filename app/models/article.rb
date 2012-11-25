@@ -61,6 +61,19 @@ class Article < Content
 
   setting :password,                   :string, ''
 
+  def merge_with!(other_id)
+
+    other = Article.find(other_id)
+
+    self.body = self.body + "\n" + other.body
+
+    self.comments << other.comments
+
+    self.save!
+
+    Article.delete(other)   
+  end
+
   def initialize(*args)
     super
     # Yes, this is weird - PDC
@@ -272,6 +285,10 @@ class Article < Content
     else
       count(:conditions => { :published => true })
     end
+  end
+
+  def find_by_title(title)
+    return Article.where(:title => title).first
   end
 
   def self.find_by_published_at

@@ -18,6 +18,7 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 #    raise "Don't know what gem to use for adapter #{adapter}"
 #  end
 #end
+gem 'railroady'
 
 group :production do
   gem 'pg'

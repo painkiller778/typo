@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   match '/search/', :to => 'articles#search', :as => 'search_base', :format => false
   match '/archives/', :to => 'articles#archives', :format => false
   match '/page/:page', :to => 'articles#index', :page => /\d+/, :format => false
-  get '/pages/*name', :to => 'articles#view_page', :format => false
+  get '/pages/*name', :to => 'articles#view_page', :format => false, :as => :article_view
   match 'previews(/:id)', :to => 'articles#preview', :format => false
   match 'check_password', :to => 'articles#check_password', :format => false
   match 'articles/markup_help/:id', :to => 'articles#markup_help', :format => false
@@ -111,6 +111,8 @@ Rails.application.routes.draw do
     match "/admin/#{i}", :to => "admin/#{i}#index", :format => false
     match "/admin/#{i}(/:action(/:id))", :to => "admin/#{i}", :action => nil, :id => nil, :format => false
   end
+
+  match 'admin/articles/merge_articles', :to => 'articles#merge_articles', :via => :post, :as => :merge_articles
 
   # default
   root :to  => 'articles#index', :format => false
