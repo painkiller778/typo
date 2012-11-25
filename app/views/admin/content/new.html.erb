@@ -4,9 +4,9 @@
 
   <h4>Merge Articles</h4>
 
-  <%= form_tag merge_articles_path, :id => :merge_with do %>
+  <%= form_tag merge_articles_path do %>
     <%= hidden_field_tag(:this_article_id, @article.id) %>
-    <p>Article ID: <%= text_field_tag(:article_id) %></p>
+    <p>Article ID: <%= text_field_tag(:article_id), :id => :merge_with %></p>
     <%= submit_tag "Merge" %>
   <% end %>
   <hr />
