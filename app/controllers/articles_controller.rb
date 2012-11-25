@@ -15,7 +15,7 @@ class ArticlesController < ContentController
   def merge_articles
     article = Article.find(params[:this_article_id])
 
-    article.merge_with!(params[:article_id])
+    article.merge_with!(params[:merge_with])
 
     redirect_to article
   end
