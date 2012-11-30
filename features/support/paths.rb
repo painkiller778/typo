@@ -15,6 +15,8 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the categories page$/
+      '/admin/categories'
     when /^the new article page$/
       '/admin/content/new'
     when /^the article edit page for "(.*)"$/
